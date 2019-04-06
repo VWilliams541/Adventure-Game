@@ -4,16 +4,22 @@ namespace AdventureGame
 {
     class Program
     {
+
+        /*TODO
+         Add more text
+         Add different choices for players
+         Make Health reset on game reset or fight with new monster of same type
+         */
         public class Player
         {
-               public static string PlayerName;
-               public static int PlayerHealth = 100;
-               public static int PlayerAttack = 5;
+               public static string Name;
+               public static int Health = 100;
+               public static int Attack = 5;
         }   
         public class Snail
         {
-            public static int SnailHealth = 25;
-            public static int SnailAttack = 2;
+            public static int Health = 25;
+            public static int Attack = 2;
         }
         static void Main(string[] args)
         { 
@@ -25,12 +31,12 @@ namespace AdventureGame
             Console.ReadLine();
 
             Console.WriteLine("Now before you go on your quest, tell me, what is your name?");
-            Player.PlayerName = Console.ReadLine();
-            Console.WriteLine("Go now, " + Player.PlayerName + " and seek your fortune");
+            Player.Name = Console.ReadLine();
+            Console.WriteLine("Go now, " + Player.Name + " and seek your fortune");
             Console.ReadLine();
 
             Console.WriteLine("As you leave the saftey of your village, you can't help but to feel" +
-                "a little nervous.");
+                " a little nervous.");
             Console.ReadLine();
 
             Console.WriteLine("You are attacked by a vicious snail!");
@@ -39,20 +45,20 @@ namespace AdventureGame
 
             Console.WriteLine("Battle Start!");
             Console.WriteLine("");
-            Console.WriteLine("Snail Health : " + Snail.SnailHealth);
+            Console.WriteLine("Snail Health : " + Snail.Health);
             Console.WriteLine("");
-            Console.WriteLine("Player Health : " + Player.PlayerHealth);
+            Console.WriteLine("Player Health : " + Player.Health);
             Console.ReadLine();
 
-            while (Player.PlayerHealth > 0 && Snail.SnailHealth > 0) {
-                Snail.SnailHealth = Snail.SnailHealth - Player.PlayerAttack;
-                Player.PlayerHealth = Player.PlayerHealth - Snail.SnailAttack;
-                Console.WriteLine("Snail Health : " + Snail.SnailHealth);
+            while (Player.Health > 0 && Snail.Health > 0) {
+                Snail.Health = Snail.Health - Player.Attack;
+                Player.Health = Player.Health - Snail.Attack;
+                Console.WriteLine("Snail Health : " + Snail.Health);
                 Console.WriteLine("");
-                Console.WriteLine("Player Health : " + Player.PlayerHealth);
+                Console.WriteLine("Player Health : " + Player.Health);
                 
 
-                if (Player.PlayerHealth <= 0)
+                if (Player.Health <= 0)
                 {
                     Console.WriteLine("You died!");
                     Console.WriteLine("Would you like to start again?");
@@ -67,7 +73,7 @@ namespace AdventureGame
                     }
                
                 }
-                else if (Snail.SnailHealth <= 0)
+                else if (Snail.Health <= 0)
                 {
                     Console.WriteLine("You won!");
                 }
